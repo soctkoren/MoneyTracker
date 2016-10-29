@@ -6,7 +6,6 @@ class App extends Component {
     return (
       <div className="App">
         <p>Hello world</p>
-        {console.log('yo')}
       </div>
     );
   }

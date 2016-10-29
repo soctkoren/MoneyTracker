@@ -7,6 +7,7 @@ import { rootReducers } from './Reducers/reducers.js';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import thunkMiddleware from 'redux-thunk';
 import App from './App';
+import TransactionActivityPage from './Components/TransactionActivityPage';
 import './index.css';
 
 const store = createStore(
@@ -24,7 +25,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
-			<Route path='/' component={App}/>
+			<Route path='/' component={TransactionActivityPage}/>
 		</Router>
 	</Provider>,
   document.getElementById('root')

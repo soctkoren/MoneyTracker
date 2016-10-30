@@ -1,8 +1,22 @@
 import React from 'react';
 import data from '../../../data.json';
+import { connect } from 'react-redux';
+import { setModeFilter } from '../../Actions/actions.js';
 import Transaction from './transaction.js';
 
-export default class TransactionActivitypage extends React.Component {
+const mapStateToProps = (state) => {
+	return {
+		data: state
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setModeFilter: (mode) => dispatch(setModeFilter(mode))
+	}
+}
+
+class TransactionActivityPage extends React.Component {
 	constructor(props) {
 	  super(props);
 	
@@ -12,13 +26,20 @@ export default class TransactionActivitypage extends React.Component {
 	  	debit: 0,
 	  	monthYearSpliter: {}
 	  };
+
+	  this.setFilter = this.setFilter.bind(this);
 	}
 
 	componentWillMount() {
-		this.state = {
-			data: data.transactions
-		};
-		this.monthYearSplitAndSum(data);
+		console.log(this.props)
+		// this.state = {
+		// 	data: data.transactions
+		// };
+		// this.monthYearSplitAndSum(data);
+	}
+
+	setFilter() {
+		this.props.setModeFilter('IGNORE_DONUT')
 	}
 
 	monthYearSplitAndSum(data) {
@@ -48,9 +69,9 @@ export default class TransactionActivitypage extends React.Component {
 			}
 		})
 
-		console.log(totalCredit)
-		console.log(totalDebit)
-		console.log(monthYearSpliter)
+		// console.log(totalCredit)
+		// console.log(totalDebit)
+		// console.log(monthYearSpliter)
 
 		this.setState({
 			credit: totalCredit,
@@ -68,7 +89,8 @@ export default class TransactionActivitypage extends React.Component {
 							All
 						</li>
 						<li>
-							Ignore Donuts
+							<p>{this.props.data.visibilityFilter.ModeFilters}</p>					
+							<button onClick={this.setFilter}>test</button>
 						</li>
 						<li>
 							Crystal Ball
@@ -90,3 +112,5 @@ export default class TransactionActivitypage extends React.Component {
 		)
 	}
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionActivityPage)

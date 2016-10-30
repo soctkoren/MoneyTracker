@@ -7,7 +7,6 @@ import './styles.css';
 const Transaction = ({props}) => {
 	return (
 		<div className='transactionContainer'>
-			{console.log(props)}
 			<div className='transactionDate'>
 				<p>{props['transaction-time']}</p>
 			</div>

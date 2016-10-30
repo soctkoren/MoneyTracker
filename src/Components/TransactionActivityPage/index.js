@@ -27,17 +27,23 @@ class TransactionActivityPage extends React.Component {
 	  super(props);
 	
 	  this.state = {
-	  	data: [],
-	  	visiableData: [],
-	  	credit: 0,
-	  	debit: 0,
-	  	monthYearSplitAndSum: {'2014':[]}
+	  	data: []
 	  };
 
 	  this.setFilter = this.setFilter.bind(this);
 	}
 
 	componentWillMount() {
+		this.setFilter('SHOW_ALL')
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const prop = nextProps.data.app.visibleData
+		this.setState({
+			credit: prop.totalCredit,
+			debit: prop.totalDebit,
+			monthYearSplitAndSum: prop.monthYearSplitAndSum
+		});
 	}
 
 	setFilter(mode) {
@@ -53,22 +59,22 @@ class TransactionActivityPage extends React.Component {
 							All
 						</li>
 						<li>
+							{this.props.data.app.visibleData.totalCredit}
 							<p>{this.props.data.app.ModeFilters}</p>					
 							<button onClick={() => this.setFilter('IGNORE_DONUT')}>test</button>
 						</li>
 						<li>
 							<button onClick={() => this.setFilter('IGNORE_CC')}>test</button>
+							{this.props.data.app.visibleData.totalDebit}
 						</li>
 						<li>
-							Ignore CC
-							{this.props.data.app.visibleData.totalCredit}
+							{console.log(this.state)}
+							{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}
 						</li>
 					</ul>
 				</div>
 				<div className='activitySummaryContainer'>
 					{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
-  					console.log(key)
-  					console.log(value)
   					return <TransactionList heading={key} value={value}/>
 					}) : <div>d</div> }
 				</div>

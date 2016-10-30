@@ -9,6 +9,11 @@ const initialState = {
 
 const app = (state = initialState, action) => {  
   switch (action.type) {
+    case 'SHOW_ALL':
+    	return Object.assign({}, state, {
+				ModeFilters: action.mode,
+				visibleData: showAll(state)
+			})
     case 'IGNORE_DONUT':
 			return Object.assign({}, state, {
 				ModeFilters: action.mode,
@@ -22,6 +27,11 @@ const app = (state = initialState, action) => {
     default:
       return state
   }
+}
+
+const showAll = (state) => {
+	let visibleData = monthYearSplitAndSum(state.data)
+	return visibleData
 }
 
 const ignoreDonuts = (state) => {
@@ -43,7 +53,7 @@ const ignoreCC = (state) => {
 }
 
 function isNotCC(transaction) {
-	if (transaction['raw-merchant'] !== "DUNKIN #336784" && transaction['raw-merchant'] !== "Krispy Kreme Donuts") {
+	if (transaction['raw-merchant'] !== "CC payment" && transaction['raw-merchant'] !== "CREDIT CARD PAYMENT") {
 		return true
 	} else {
 		return false

@@ -22,9 +22,10 @@ class TransactionActivityPage extends React.Component {
 	
 	  this.state = {
 	  	data: [],
+	  	visiableData: [],
 	  	credit: 0,
 	  	debit: 0,
-	  	monthYearSpliter: {}
+	  	monthYearSplitAndSum: {}
 	  };
 
 	  this.setFilter = this.setFilter.bind(this);
@@ -45,20 +46,20 @@ class TransactionActivityPage extends React.Component {
 	monthYearSplitAndSum(data) {
 		let totalDebit = 0
 		let totalCredit = 0
-		const monthYearSpliter = {}
+		const monthYearSplitAndSum = {}
 		
 		// Create sum for debit and credit. Also create month & year parser. Doing both work here instead of
 		// iterating through again.
 		data.transactions.forEach((transaction) => {
 		// Create date parser. Rather than converting to date.
 		// split 2014-10-08T10:41:00.000Z by -. first 2 index gives unquie year and month key
-		// that can be stored to the collection monthYearSpliter
+		// that can be stored to the collection monthYearSplitAndSum
 		const date = transaction['transaction-time'].split('-')
 		const yearMonth = (date[0] + date[1])
-			if (monthYearSpliter[yearMonth]) {
-				monthYearSpliter[yearMonth].push(transaction)
+			if (monthYearSplitAndSum[yearMonth]) {
+				monthYearSplitAndSum[yearMonth].push(transaction)
 			} else {
-				monthYearSpliter[yearMonth] = [transaction]
+				monthYearSplitAndSum[yearMonth] = [transaction]
 			}
 
 		// Logic to push transaction amount to debit or credit
@@ -71,12 +72,12 @@ class TransactionActivityPage extends React.Component {
 
 		// console.log(totalCredit)
 		// console.log(totalDebit)
-		// console.log(monthYearSpliter)
+		// console.log(monthYearSplitAndSum)
 
 		this.setState({
 			credit: totalCredit,
 			debit: totalDebit,
-			monthYearSpliter: monthYearSpliter
+			monthYearSplitAndSum: monthYearSplitAndSum
 		})
 	}
 
@@ -94,6 +95,7 @@ class TransactionActivityPage extends React.Component {
 						</li>
 						<li>
 							Crystal Ball
+									{console.log(this.props.data.visibilityFilter)}
 						</li>
 						<li>
 							Ignore CC

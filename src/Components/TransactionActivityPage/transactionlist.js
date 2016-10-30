@@ -5,7 +5,7 @@ import './styles.css';
 
 const TransactionList = ({heading, value}) => {
 	return (
-		<div className='transactionContainer'>
+		<div className='listContainer'>
 			<h1>{heading}</h1>
 			<div className='transactionListContainer'>
 			  {value.map(function(transaction, i) {

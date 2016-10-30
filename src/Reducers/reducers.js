@@ -14,6 +14,11 @@ const app = (state = initialState, action) => {
 				ModeFilters: action.mode,
 				visibleData: ignoreDonuts(state)
 			})
+		case 'IGNORE_CC':
+			return Object.assign({}, state, {
+				ModeFilters: action.mode,
+				visibleData: ignoreCC(state)
+			})
     default:
       return state
   }

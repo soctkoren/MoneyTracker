@@ -40,8 +40,8 @@ class TransactionActivityPage extends React.Component {
 	componentWillMount() {
 	}
 
-	setFilter() {
-		this.props.setModeFilter('IGNORE_DONUT')
+	setFilter(mode) {
+		this.props.setModeFilter(mode)
 	}
 
 	render () {
@@ -54,10 +54,10 @@ class TransactionActivityPage extends React.Component {
 						</li>
 						<li>
 							<p>{this.props.data.app.ModeFilters}</p>					
-							<button onClick={this.setFilter}>test</button>
+							<button onClick={() => this.setFilter('IGNORE_DONUT')}>test</button>
 						</li>
 						<li>
-								
+							<button onClick={() => this.setFilter('IGNORE_CC')}>test</button>
 						</li>
 						<li>
 							Ignore CC

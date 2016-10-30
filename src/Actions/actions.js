@@ -11,7 +11,7 @@ export const ModeFilters = {
 //action creators
 export function setModeFilter(mode) {
   return { 
-  	type: 'IGNORE_DONUT', 
+  	type: mode, 
   	mode 
   }
 }

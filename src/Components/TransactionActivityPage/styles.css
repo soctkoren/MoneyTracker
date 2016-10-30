@@ -1,0 +1,19 @@
+.transactionListContainer {
+	
+}
+
+.transactionContainer {
+	border-style: solid;
+	border: 2px;
+	border-color: black;
+	display: flex;
+}
+
+.transactionAmount {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.transactionDebitCredit {
+	display: flex;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import data from '../../../data.json';
 import { connect } from 'react-redux';
 import { setModeFilter } from '../../Actions/actions.js';
-import Transaction from './transaction.js';
+import TransactionList from './transactionlist.js';
 
 const mapStateToProps = (state) => {
 	return {
@@ -69,6 +69,7 @@ class TransactionActivityPage extends React.Component {
 					{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
   					console.log(key)
   					console.log(value)
+  					return <TransactionList heading={key} value={value}/>
 					}) : <div>d</div> }
 				</div>
 				<div className='transactionListContainer'>

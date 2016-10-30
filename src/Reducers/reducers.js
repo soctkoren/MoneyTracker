@@ -7,10 +7,9 @@ const initialState = {
 	visibleData: {}
 }
 
-const visibilityFilter = (state = initialState, action) => {  
+const app = (state = initialState, action) => {  
   switch (action.type) {
     case 'IGNORE_DONUT':
-			console.log('yo')
 			return Object.assign({}, state, {
 				ModeFilters: action.mode,
 				visibleData: ignoreDonuts(state)
@@ -33,12 +32,26 @@ function isNotDonut(transaction) {
 	}
 }
 
+const ignoreCC = (state) => {
+	let visibleData = monthYearSplitAndSum(state.data.filter(isNotCC))
+	return visibleData
+}
+
+function isNotCC(transaction) {
+	if (transaction['raw-merchant'] !== "DUNKIN #336784" && transaction['raw-merchant'] !== "Krispy Kreme Donuts") {
+		return true
+	} else {
+		return false
+	}
+}
+
+
+
+
 function monthYearSplitAndSum(visibleData) {
 	let totalDebit = 0
 	let totalCredit = 0
 	const monthYearSplitAndSum = {}
-	
-	console.log(visibleData)
 	// Create sum for debit and credit. Also create month & year parser. Doing both work here instead of
 	// iterating through again.
 	visibleData.forEach((transaction) => {
@@ -65,7 +78,7 @@ function monthYearSplitAndSum(visibleData) {
 }
 
 const rootReducers = combineReducers({
-	visibilityFilter,
+	app,
 })
 
 export default rootReducers

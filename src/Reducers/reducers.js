@@ -7,35 +7,6 @@ const initialState = {
 	loaded: false
 }
 
-const app = (state = initialState, action) => {  
-  switch (action.type) {
-  	case 'RECEIVE_TRANSACTION': 
-  		return Object.assign({}, state, {
-  			data: action.data,
-  			ModeFilters: 'SHOW_ALL',
-				visibleData: showAll(action),
-				loaded: action.loaded
-  		})
-    case 'SHOW_ALL':
-    	return Object.assign({}, state, {
-				ModeFilters: action.mode,
-				visibleData: showAll(state)
-			})
-    case 'IGNORE_DONUT':
-			return Object.assign({}, state, {
-				ModeFilters: action.mode,
-				visibleData: ignoreDonuts(state)
-			})
-		case 'IGNORE_CC':
-			return Object.assign({}, state, {
-				ModeFilters: action.mode,
-				visibleData: ignoreCC(state)
-			})
-    default:
-      return state
-  }
-}
-
 const showAll = (state) => {
 	if (state.data) {
 		let visibleData = monthYearSplitAndSum(state.data)
@@ -111,26 +82,58 @@ function monthYearSplitAndSum(visibleData) {
 	})
 	
 	for (let key in monthYearSplitAndSum) {
-		let monthDebit = 0
-		let monthCredit = 0
-		let total = 0
-		let DebitCount = 0
-		let avgSpending = 0
-		monthYearSplitAndSum[key].forEach(function(a){
-			if (a.amount <= 0) {
-				monthDebit += a.amount
-				DebitCount += 1
-			} else {
-				monthCredit += a.amount
-			}
-			total += a.amount
-			avgSpending = Math.floor(monthCredit / DebitCount)
-		})
-		monthYearSplitAndSum[key] = [monthYearSplitAndSum[key], monthDebit, monthCredit, total, avgSpending, DebitCount]
+		if(monthYearSplitAndSum) {
+			let monthDebit = 0
+			let monthCredit = 0
+			let total = 0
+			let DebitCount = 0
+			let avgSpending = 0
+			monthYearSplitAndSum[key].forEach(function(a){
+				if (a.amount <= 0) {
+					monthDebit += a.amount
+					DebitCount += 1
+				} else {
+					monthCredit += a.amount
+				}
+				total += a.amount
+				avgSpending = Math.floor(monthCredit / DebitCount)
+			})
+			monthYearSplitAndSum[key] = [monthYearSplitAndSum[key], monthDebit, monthCredit, total, avgSpending, DebitCount]
+		}
 	}
 	
 	return visibleData = {monthYearSplitAndSum, totalDebit, totalCredit}
 }
+
+const app = (state = initialState, action) => {  
+  switch (action.type) {
+  	case 'RECEIVE_TRANSACTION': 
+  		return Object.assign({}, state, {
+  			data: action.data,
+  			ModeFilters: 'SHOW_ALL',
+				visibleData: showAll(action),
+				loaded: action.loaded
+  		})
+    case 'SHOW_ALL':
+    	return Object.assign({}, state, {
+				ModeFilters: action.mode,
+				visibleData: showAll(state)
+			})
+    case 'IGNORE_DONUT':
+			return Object.assign({}, state, {
+				ModeFilters: action.mode,
+				visibleData: ignoreDonuts(state)
+			})
+		case 'IGNORE_CC':
+			return Object.assign({}, state, {
+				ModeFilters: action.mode,
+				visibleData: ignoreCC(state)
+			})
+    default:
+      return state
+  }
+}
+
 
 const rootReducers = combineReducers({
 	app,

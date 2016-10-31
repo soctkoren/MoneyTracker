@@ -69,7 +69,32 @@
 }
 
 .transactionDebitCredit {
-	float: right;
+	display: flex;
+	width: 180px;
+	border-left: 1px solid;
+	border-color: white;
+}
+
+.transactionDebitCredit p{
+	margin: 0
+}
+
+.transactionCredit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+	border-right: 1px solid;
+	border-color: white;
+}
+
+.transactionDebit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
 }
 
 .slider-decorator-2 {

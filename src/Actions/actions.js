@@ -1,4 +1,7 @@
 import axios from 'axios';
+import args from '../../config.json';
+
+console.log(args)
 
 // constants
 export const SET_MODE_FILTER = 'SET_MODE_FILTER'
@@ -29,7 +32,6 @@ export function fetchTransactions(mode) {
 			  	'Accept': 'application/json'
 			  }
 			});
-			const args = {"args": {"uid":  1110590645, "token":  "F002AA5679C51E60FF7A1823DD39C49C", "api-token":  "AppTokenForInterview", "json-strict-mode": false, "json-verbose-response": false}};
 		  return instance.post(`${mode}`, 
 		  		JSON.stringify(args))
 				  .then(function (response) {

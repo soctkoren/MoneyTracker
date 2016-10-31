@@ -3,6 +3,7 @@ import data from '../../../data.json';
 import { connect } from 'react-redux';
 import { setModeFilter } from '../../Actions/actions.js';
 import TransactionList from './transactionlist.js';
+import Carousel from 'nuka-carousel';
 
 const mapStateToProps = (state) => {
 	return {
@@ -74,9 +75,11 @@ class TransactionActivityPage extends React.Component {
 					</ul>
 				</div>
 				<div className='activitySummaryContainer'>
-					{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
-  					return <TransactionList heading={key} value={value}/>
-					}) : <div className='listContainer'></div> }
+					<Carousel>
+						{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
+	  					return <TransactionList heading={key} value={value}/>
+						}) : <div className='listContainer'></div> }
+					</Carousel>
 				</div>
 				<div className='transactionListContainer'>
 				  {this.state.data.map(function(transaction, i) {

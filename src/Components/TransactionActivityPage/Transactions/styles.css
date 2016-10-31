@@ -5,12 +5,54 @@
 
 .navBar {
 	display: flex;
+	justify-content: flex-end;
 	width: 700px;
 	margin: 0 auto;
+	margin-top: 5%;
 }
-.SummaryContainer {
+
+.navBar button{
+	border:none;
+	font-size: 13px; 
+	border: 1px solid;
+	border-color: white;
+	outline: none;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.default {
+	background-color: #F9971C;
+	color: white;
+}
+
+.active {
+	background-color: white;
+	color: black;
+}
+
+.ModeSummaryContainer {
 	width: 700px;
+	height: 100px;
 	margin: 0 auto;
+	text-align: center;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.SummaryContainer {
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	height: 60%;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}
+
+.SummaryContainer p {
+	color: #3F3F3F;
+	margin: 0;
 }
 
 .activitySummaryContainer {
@@ -57,10 +99,10 @@
 	display: flex
 }
 .transactionContainer:nth-child(odd) {
-    background-color: #F9971C;
+  background-color: #F9971C;
 }
 .transactionContainer:nth-child(even) {
-    background-color: #E08719;
+  background-color: #E08719;
 }
 
 .transactionDate {
@@ -148,18 +190,70 @@
 }
 
 .MonthButtonsContainer {
-	transform: translateY(50px);
-	width: 560px;
-	height: 50px;
+	transform: translateY(-90px);
+	width: 688px;
+	height: 25px;
 	display: flex;
 	justify-content: space-between;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .PrevButton {
-	width: 50%;
+	width: 15%;
+	background-color: #6D728F;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 3px;
 }
 
 .NextButton {
-	width: 50%;
+	width: 15%;
+	background-color: #6D728F;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 3px;
+}
+
+.Date p {
+	padding-right: 4px;
+	padding-left: 4px;
+}
+
+.Header {
+	color: white;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-style: solid;
+	border: 1px solid;
+	border-color: #F9F9F9;
+	background-color: gray;
+	display: flex;
+	justify-content: space-between;
+}
+
+.HeadingCard {
+	width: 80%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 13px;
+	padding-right: 13px;
+	margin: 2px;
+	padding-bottom: 3px;
+}
+
+.Income {
+	background-color: #e1e2e8;
+	margin-left: 5px;
+}
+
+.Spending {
+	background-color: #e1e2e8;
+}
+
+.Net {
+	background-color: #e1e2e8;
+	margin-right: 5px;
 }

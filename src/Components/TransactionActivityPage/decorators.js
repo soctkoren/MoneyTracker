@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './Transactions/styles.css';
 
 const Decorators = [{
   component: React.createClass({
@@ -18,9 +18,9 @@ const Decorators = [{
       )
     }
   }),
-  position: 'BottomCenter',
+  position: 'TopCenter',
   style: {
-
+    
   }
 }];
 

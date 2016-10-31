@@ -1,5 +1,6 @@
 import React from 'react';
-import Transaction from './transaction.js'
+import Transaction from './transaction.js';
+import TransactionHeader from './transactionheader.js';
 
 import './styles.css';
 
@@ -8,6 +9,7 @@ const TransactionList = ({heading, value}) => {
 	return (
 		<div className='listContainer'>
 			<h1>{heading}</h1>
+			<TransactionHeader/>
 			<div className='transactionListContainer'>
 			  {value[0].map(function(transaction, i) {
 			  	return <Transaction key={i} props={transaction} />

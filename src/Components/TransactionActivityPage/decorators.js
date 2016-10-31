@@ -18,9 +18,9 @@ const Decorators = [{
       )
     }
   }),
-  position: 'BottomCenter',
+  position: 'TopCenter',
   style: {
-
+    
   }
 }];
 

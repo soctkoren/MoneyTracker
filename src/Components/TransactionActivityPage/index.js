@@ -57,24 +57,20 @@ class TransactionActivityPage extends React.Component {
 		return (
 			<div className='ReportsContainer'>
 				<div className='navBar'>
-					<ul>
-						<li>
-							All
-						</li>
-						<li>
-							{this.props.data.app.visibleData.totalCredit}
-							<p>{this.props.data.app.ModeFilters}</p>					
-							<button onClick={() => this.setFilter('IGNORE_DONUT')}>test</button>
-						</li>
-						<li>
-							<button onClick={() => this.setFilter('IGNORE_CC')}>test</button>
-							{this.props.data.app.visibleData.totalDebit}
-						</li>
-						<li>
-							{console.log(this.state)}
-							{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}
-						</li>
-					</ul>
+					<div>
+						<button onClick={() => this.setFilter('SHOW_ALL')}>All Transactions</button>
+					</div>
+					<div>
+						<button onClick={() => this.setFilter('IGNORE_DONUT')}>Ignore Donuts</button>
+					</div>
+					<div>
+						<button onClick={() => this.setFilter('IGNORE_CC')}>Ignore CC</button>
+					</div>
+				</div>
+				<div className='SummaryContainer'>
+					{this.props.data.app.visibleData.totalCredit}					
+					{this.props.data.app.visibleData.totalDebit}
+					{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}
 				</div>
 				<div className='activitySummaryContainer'>
 					<Carousel dragging={true} decorators={Decorators}>

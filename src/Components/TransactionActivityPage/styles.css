@@ -3,6 +3,16 @@
 	margin: 0 auto;
 }
 
+.navBar {
+	display: flex;
+	width: 700px;
+	margin: 0 auto;
+}
+.SummaryContainer {
+	width: 700px;
+	margin: 0 auto;
+}
+
 .activitySummaryContainer {
 	margin: 0 auto;
 	width: 800px;

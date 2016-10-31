@@ -8,7 +8,7 @@ const Transaction = ({props}) => {
 	return (
 		<div className='transactionContainer'>
 			<div className='transactionDate'>
-				<p>{props['transaction-time']}</p>
+				<p>{props['transaction-time'].substring(5,10)}</p>
 			</div>
 			<div className='transactionAmount'>
 				<p>{props.merchant}</p>

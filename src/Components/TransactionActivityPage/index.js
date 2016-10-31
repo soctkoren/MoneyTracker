@@ -76,7 +76,7 @@ class TransactionActivityPage extends React.Component {
 				<div className='activitySummaryContainer'>
 					{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
   					return <TransactionList heading={key} value={value}/>
-					}) : <div>d</div> }
+					}) : <div className='listContainer'></div> }
 				</div>
 				<div className='transactionListContainer'>
 				  {this.state.data.map(function(transaction, i) {

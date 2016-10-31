@@ -62,7 +62,6 @@ function monthYearSplitAndSum(visibleData, baseData) {
 	let diff = []
 	if (baseData) {
 		diff = baseData.filter(function(x) { return visibleData.indexOf(x) < 0 })
-		console.log(diff)
 	}
 
 	const monthYearSplitAndSum = {}

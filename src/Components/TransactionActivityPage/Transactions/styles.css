@@ -199,10 +199,20 @@
 
 .PrevButton {
 	width: 15%;
+	background-color: #6D728F;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 3px;
 }
 
 .NextButton {
 	width: 15%;
+	background-color: #6D728F;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 3px;
 }
 
 .Date p {

@@ -16,6 +16,9 @@
 	font-size: 13px; 
 	border: 1px solid;
 	border-color: white;
+	outline: none;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
 }
 
 .default {

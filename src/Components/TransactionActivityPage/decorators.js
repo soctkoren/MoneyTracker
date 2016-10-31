@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './Transactions/styles.css';
 
 const Decorators = [{
   component: React.createClass({

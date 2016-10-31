@@ -54,7 +54,6 @@ class TransactionActivityPage extends React.Component {
 
 
 	render () {
-
 		return (
 			<div className='ReportsContainer'>
 				<div className='navBar'>

@@ -61,7 +61,6 @@ function isNotCC(transaction) {
 	}
 }
 
-
 function monthYearSplitAndSum(visibleData) {
 	let totalDebit = 0
 	let totalCredit = 0
@@ -101,7 +100,22 @@ function monthYearSplitAndSum(visibleData) {
 			totalCredit += transaction.amount
 		}
 	})
-
+	
+	for (let key in monthYearSplitAndSum) {
+		let monthDebit = 0
+		let monthCredit = 0
+		let total = 0
+		monthYearSplitAndSum[key].forEach(function(a){
+			if (a.amount <= 0) {
+				monthDebit += a.amount
+			} else {
+				monthCredit += a.amount
+			}
+			total += a.amount
+		})
+		monthYearSplitAndSum[key] = [monthYearSplitAndSum[key], monthDebit, monthCredit, total]
+	}
+	
 	return visibleData = {monthYearSplitAndSum, totalDebit, totalCredit}
 }
 

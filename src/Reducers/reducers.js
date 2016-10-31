@@ -53,19 +53,31 @@ const ignoreCC = (state) => {
 }
 
 function isNotCC(transaction) {
-	if (transaction['raw-merchant'] !== "CC payment" && transaction['raw-merchant'] !== "CREDIT CARD PAYMENT") {
+	console.log(transaction['raw-merchant'].toLowerCase())
+	if (transaction['raw-merchant'].toLowerCase() !== "cc payment" && transaction['raw-merchant'] !== "CREDIT CARD PAYMENT") {
 		return true
 	} else {
 		return false
 	}
 }
 
-
-
-
 function monthYearSplitAndSum(visibleData) {
 	let totalDebit = 0
 	let totalCredit = 0
+	let histogramMonths = {
+		'01': 'January',
+		'02': 'February',
+		'03': 'March',
+		'04': 'April',
+		'05': 'May',
+		'06': 'June',
+		'07': 'July',
+		'08': 'August',
+		'09': 'September',
+		'10': 'October',
+		'11': 'November',
+		'12': 'December'
+	}
 	const monthYearSplitAndSum = {}
 	// Create sum for debit and credit. Also create month & year parser. Doing both work here instead of
 	// iterating through again.
@@ -74,7 +86,7 @@ function monthYearSplitAndSum(visibleData) {
 	// split 2014-10-08T10:41:00.000Z by -. first 2 index gives unquie year and month key
 	// that can be stored to the collection monthYearSplitAndSum
 	const date = transaction['transaction-time'].split('-')
-	const yearMonth = (date[0] + date[1])
+	const yearMonth = (histogramMonths[date[1]] + ' ' + date[0])
 		if (monthYearSplitAndSum[yearMonth]) {
 			monthYearSplitAndSum[yearMonth].push(transaction)
 		} else {
@@ -88,7 +100,22 @@ function monthYearSplitAndSum(visibleData) {
 			totalCredit += transaction.amount
 		}
 	})
-
+	
+	for (let key in monthYearSplitAndSum) {
+		let monthDebit = 0
+		let monthCredit = 0
+		let total = 0
+		monthYearSplitAndSum[key].forEach(function(a){
+			if (a.amount <= 0) {
+				monthDebit += a.amount
+			} else {
+				monthCredit += a.amount
+			}
+			total += a.amount
+		})
+		monthYearSplitAndSum[key] = [monthYearSplitAndSum[key], monthDebit, monthCredit, total]
+	}
+	
 	return visibleData = {monthYearSplitAndSum, totalDebit, totalCredit}
 }
 

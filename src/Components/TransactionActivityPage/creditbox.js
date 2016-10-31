@@ -4,8 +4,8 @@ import './styles.css';
 const CreditBox = ({amount}) => {
 	return (
 		<div className='transactionDebitCredit'>
-			<div className='transactionCredit'><p>{Math.abs(amount)}</p></div>
-			<div className='transactionDebit'><p> </p></div>
+			<div className='transactionCredit'><p> </p></div>
+			<div className='transactionDebit'><p>{Math.abs(amount)}</p></div>
 		</div>
 	)
 }

@@ -1,19 +1,165 @@
+.ReportsContainer {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.navBar {
+	display: flex;
+	width: 700px;
+	margin: 0 auto;
+}
+.SummaryContainer {
+	width: 700px;
+	margin: 0 auto;
+}
+
+.activitySummaryContainer {
+	margin: 0 auto;
+	width: 800px;
+}
+
+.listContainer {
+	width: 700px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #6D728F;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.listContainer h1 {
+	color: white;
+	margin: 0;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
 .transactionListContainer {
-	
+	border-color: #D7D6D4;
+	width: 100%;
+	height: 300px;
+	overflow-y: auto;
 }
 
 .transactionContainer {
+	color: white;
+	padding-left: 5px;
+	padding-right: 5px;
 	border-style: solid;
-	border: 2px;
-	border-color: black;
+	border: 1px solid;
+	border-color: #F9F9F9;
 	display: flex;
+	justify-content: space-between;
+}
+.transactionLeft {
+	display: flex
+}
+.transactionContainer:nth-child(odd) {
+    background-color: #F9971C;
+}
+.transactionContainer:nth-child(even) {
+    background-color: #E08719;
+}
+
+.transactionDate {
+	color: white;
+	border-left: 0;
+	border-top: 0;
+	border-bottom: 0;
+	border-right: 1px solid;
+	border-color: #F9F9F9;
+	padding-right: 5px;
 }
 
 .transactionAmount {
-	margin-left: 5px;
+	margin-left: 10px;
 	margin-right: 5px;
 }
 
 .transactionDebitCredit {
 	display: flex;
+	width: 180px;
+	border-left: 1px solid;
+	border-color: white;
+}
+
+.transactionDebitCredit p{
+	margin: 0
+}
+
+.transactionCredit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+	border-right: 1px solid;
+	border-color: white;
+}
+
+.transactionDebit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+}
+
+.transactionTotalContainer {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.transactionTotalContainer p {
+	color: white;
+}
+
+.transactionTotalLabel {
+	margin-left: 10px;
+}
+
+.transactionTotal {
+	display: flex;
+	width: 180px;
+}
+
+.transactionTotalCredit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+}
+
+.transactionTotalDebit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;	
+}
+
+.slider-decorator-2 {
+	color: 'red';
+}
+
+.MonthButtonsContainer {
+	transform: translateY(50px);
+	width: 560px;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.PrevButton {
+	width: 50%;
+}
+
+.NextButton {
+	width: 50%;
 }

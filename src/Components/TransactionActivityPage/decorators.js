@@ -1,0 +1,27 @@
+import React from 'react';
+import './styles.css';
+
+const Decorators = [{
+  component: React.createClass({
+    render() {
+      return (
+	       <div className='MonthButtonsContainer'>
+	        <button className='PrevButton'
+	          onClick={this.props.previousSlide}>
+	          Prev Month
+	        </button>
+	        <button className='NextButton'
+	          onClick={this.props.nextSlide}>
+	          Next Month
+	        </button>
+        </div>
+      )
+    }
+  }),
+  position: 'BottomCenter',
+  style: {
+
+  }
+}];
+
+export default Decorators

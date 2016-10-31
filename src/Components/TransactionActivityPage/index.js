@@ -3,6 +3,8 @@ import data from '../../../data.json';
 import { connect } from 'react-redux';
 import { setModeFilter } from '../../Actions/actions.js';
 import TransactionList from './transactionlist.js';
+import Carousel from 'nuka-carousel';
+import Decorators from './decorators.js';
 
 const mapStateToProps = (state) => {
 	return {
@@ -50,38 +52,32 @@ class TransactionActivityPage extends React.Component {
 		this.props.setModeFilter(mode)
 	}
 
+
 	render () {
 		return (
-			<div>
+			<div className='ReportsContainer'>
 				<div className='navBar'>
-					<ul>
-						<li>
-							All
-						</li>
-						<li>
-							{this.props.data.app.visibleData.totalCredit}
-							<p>{this.props.data.app.ModeFilters}</p>					
-							<button onClick={() => this.setFilter('IGNORE_DONUT')}>test</button>
-						</li>
-						<li>
-							<button onClick={() => this.setFilter('IGNORE_CC')}>test</button>
-							{this.props.data.app.visibleData.totalDebit}
-						</li>
-						<li>
-							{console.log(this.state)}
-							{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}
-						</li>
-					</ul>
+					<div>
+						<button onClick={() => this.setFilter('SHOW_ALL')}>All Transactions</button>
+					</div>
+					<div>
+						<button onClick={() => this.setFilter('IGNORE_DONUT')}>Ignore Donuts</button>
+					</div>
+					<div>
+						<button onClick={() => this.setFilter('IGNORE_CC')}>Ignore CC</button>
+					</div>
+				</div>
+				<div className='SummaryContainer'>
+					{this.props.data.app.visibleData.totalCredit}					
+					{this.props.data.app.visibleData.totalDebit}
+					{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}
 				</div>
 				<div className='activitySummaryContainer'>
-					{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
-  					return <TransactionList heading={key} value={value}/>
-					}) : <div>d</div> }
-				</div>
-				<div className='transactionListContainer'>
-				  {this.state.data.map(function(transaction, i) {
-				  	return <Transaction key={i} props={transaction} />
-				  })}
+					<Carousel dragging={true} decorators={Decorators}>
+						{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
+	  					return <TransactionList heading={key} value={value}/>
+						}) : <div className='listContainer'></div> }
+					</Carousel>
 				</div>
 			</div>
 		)

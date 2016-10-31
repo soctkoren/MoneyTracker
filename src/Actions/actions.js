@@ -43,11 +43,10 @@ export function fetchTransactions(mode) {
 
 
 function receiveTransactions(mode, data) {
-  console.log(data.transactions)
   return {
     type: 'RECEIVE_TRANSACTION',
     data: data.transactions,
-    mode
+    loaded: true
   }
 }
 

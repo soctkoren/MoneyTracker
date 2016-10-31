@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader';
 import { setModeFilter, fetchTransactions } from '../../Actions/actions.js';
 import TransactionList from './Transactions/transactionlist.js';
 import Carousel from 'nuka-carousel';
@@ -7,7 +8,27 @@ import Decorators from './decorators.js';
 import ModeHeader from './ModeHeader';
 import './Transactions/styles.css';
 
+const options = {
+    lines: 13,
+    length: 20,
+    width: 10,
+    radius: 30,
+    corners: 1,
+    rotate: 0,
+    direction: 1,
+    color: 'white',
+    speed: 1,
+    trail: 60,
+    shadow: false,
+    hwaccel: false,
+    zIndex: 2e9,
+    top: '50%',
+    left: '50%',
+    scale: 0.7
+}
+
 const mapStateToProps = (state) => {
+	console.log(state)
 	return {
 		data: state
 	}
@@ -32,7 +53,8 @@ class TransactionActivityPage extends React.Component {
 	
 	  this.state = {
 	  	data: [],
-	  	selected: 'SHOW_ALL'
+	  	selected: 'SHOW_ALL',
+	  	loaded: false
 	  };
 
 	  this.setFilter = this.setFilter.bind(this);
@@ -45,10 +67,12 @@ class TransactionActivityPage extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		const prop = nextProps.data.app.visibleData
+
 		this.setState({
 			credit: prop.totalCredit,
 			debit: prop.totalDebit,
-			monthYearSplitAndSum: prop.monthYearSplitAndSum
+			monthYearSplitAndSum: prop.monthYearSplitAndSum,
+			loaded: nextProps.data.app.loaded 
 		});
 	}
 
@@ -64,6 +88,7 @@ class TransactionActivityPage extends React.Component {
 	render () {
 		return (
 			<div className='ReportsContainer'>
+				<Loader loaded={this.state.loaded} options={options} className="spinner"/> 
 				<div className='navBar'>
 					<div>
 						<button className={this.isActive('SHOW_ALL')} onClick={() => this.setFilter('SHOW_ALL')}>All Transactions</button>
@@ -92,7 +117,7 @@ class TransactionActivityPage extends React.Component {
 				<div className='activitySummaryContainer'>
 					<Carousel dragging={true} decorators={Decorators}>
 						{this.props.data.app.visibleData.monthYearSplitAndSum ? mapObject(this.props.data.app.visibleData.monthYearSplitAndSum, function (key, value) {
-	  					return <TransactionList heading={key} value={value}/>
+	  					return <TransactionList key={key} heading={key} value={value}/>
 						}) : <div className='listContainer'></div> }
 					</Carousel>
 				</div>

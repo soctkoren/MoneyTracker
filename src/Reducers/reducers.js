@@ -3,7 +3,8 @@ import { combineReducers } from 'redux';
 const initialState = {
 	ModeFilters: 'RECEIVE_TRANSACTION',
 	data: [],
-	visibleData: {}
+	visibleData: {},
+	loaded: false
 }
 
 const app = (state = initialState, action) => {  
@@ -12,7 +13,8 @@ const app = (state = initialState, action) => {
   		return Object.assign({}, state, {
   			data: action.data,
   			ModeFilters: 'SHOW_ALL',
-				visibleData: showAll(action)
+				visibleData: showAll(action),
+				loaded: action.loaded
   		})
     case 'SHOW_ALL':
     	return Object.assign({}, state, {
@@ -35,8 +37,6 @@ const app = (state = initialState, action) => {
 }
 
 const showAll = (state) => {
-	console.log('yo')
-	console.log(state.data)
 	if (state.data) {
 		let visibleData = monthYearSplitAndSum(state.data)
 		return visibleData

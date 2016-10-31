@@ -1,8 +1,6 @@
 import axios from 'axios';
 import args from '../../config.json';
 
-console.log(args)
-
 // constants
 export const SET_MODE_FILTER = 'SET_MODE_FILTER'
 
@@ -32,8 +30,7 @@ export function fetchTransactions(mode) {
 			  	'Accept': 'application/json'
 			  }
 			});
-		  return instance.post(`${mode}`, 
-		  		JSON.stringify(args))
+		  return instance.post(`${mode}`, JSON.stringify(args))
 				  .then(function (response) {
 				  	dispatch(receiveTransactions(mode, response.data))
 				  })
@@ -42,7 +39,6 @@ export function fetchTransactions(mode) {
 				  })
   }
 }
-
 
 function receiveTransactions(mode, data) {
   return {

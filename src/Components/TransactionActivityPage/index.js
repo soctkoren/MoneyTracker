@@ -8,9 +8,7 @@ import Decorators from './decorators.js';
 import ModeHeader from './ModeHeader';
 import './Transactions/styles.css';
 
-
 const mapStateToProps = (state) => {
-	console.log(state)
 	return {
 		data: state
 	}
@@ -29,7 +27,7 @@ function mapObject(object, callback) {
   });
 }
 
-const options = {
+const LoaderOptions = {
     lines: 13,
     length: 20,
     width: 10,
@@ -92,7 +90,7 @@ class TransactionActivityPage extends React.Component {
 		
 		return (
 			<div className='ReportsContainer'>
-				<Loader loaded={this.state.loaded} options={options} className="spinner"/> 
+				<Loader loaded={this.state.loaded} options={LoaderOptions} className="spinner"/> 
 				<div className='navBar'>
 					<div>
 						<button className={this.isActive('SHOW_ALL')} onClick={() => this.setFilter('SHOW_ALL')}>All Transactions</button>

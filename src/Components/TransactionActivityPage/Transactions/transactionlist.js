@@ -8,7 +8,13 @@ const TransactionList = ({heading, value}) => {
 	console.log(value[0])
 	return (
 		<div className='listContainer'>
-			<h1>{heading}</h1>
+			<div className='DetailContainer'>
+				<h1>{heading}</h1>
+				<div className='Circle shadow'>
+					<p>Count: {value[5]}</p>
+					<p>Avg: {value[4]}</p>
+				</div>
+			</div>
 			<TransactionHeader/>
 			<div className='transactionListContainer'>
 			  {value[0].map(function(transaction, i) {

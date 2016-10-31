@@ -286,3 +286,20 @@
 .underline p {
 	text-decoration: underline;
 }
+
+.spinner {
+	color: white;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #F8971C;
+  z-index: 9999;
+  background-size: cover;
+  background-size: cover;
+	background-repeat: no-repeat;
+}

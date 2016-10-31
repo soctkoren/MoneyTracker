@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setModeFilter } from '../../Actions/actions.js';
+import { setModeFilter, fetchTransactions } from '../../Actions/actions.js';
 import TransactionList from './Transactions/transactionlist.js';
 import Carousel from 'nuka-carousel';
 import Decorators from './decorators.js';
@@ -13,8 +13,9 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
 	return {
+		fetchTransactions: (transactions) => dispatch(fetchTransactions(transactions)),
 		setModeFilter: (mode) => dispatch(setModeFilter(mode))
 	}
 }
@@ -35,6 +36,7 @@ class TransactionActivityPage extends React.Component {
 	  };
 
 	  this.setFilter = this.setFilter.bind(this);
+	  this.props.fetchTransactions('get-all-transactions')
 	}
 
 	componentWillMount() {

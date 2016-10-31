@@ -1,14 +1,19 @@
-import data from '../../data.json';
 import { combineReducers } from 'redux';
 
 const initialState = {
-	ModeFilters: 'SHOW_ALL',
-	data: data.transactions,
+	ModeFilters: 'RECEIVE_TRANSACTION',
+	data: [],
 	visibleData: {}
 }
 
 const app = (state = initialState, action) => {  
   switch (action.type) {
+  	case 'RECEIVE_TRANSACTION': 
+  		return Object.assign({}, state, {
+  			data: action.data,
+  			ModeFilters: 'SHOW_ALL',
+				visibleData: showAll(action)
+  		})
     case 'SHOW_ALL':
     	return Object.assign({}, state, {
 				ModeFilters: action.mode,
@@ -30,8 +35,13 @@ const app = (state = initialState, action) => {
 }
 
 const showAll = (state) => {
-	let visibleData = monthYearSplitAndSum(state.data)
-	return visibleData
+	console.log('yo')
+	console.log(state.data)
+	if (state.data) {
+		let visibleData = monthYearSplitAndSum(state.data)
+		return visibleData
+	}
+	return state
 }
 
 const ignoreDonuts = (state) => {
@@ -53,7 +63,6 @@ const ignoreCC = (state) => {
 }
 
 function isNotCC(transaction) {
-	console.log(transaction['raw-merchant'].toLowerCase())
 	if (transaction['raw-merchant'].toLowerCase() !== "cc payment" && transaction['raw-merchant'] !== "CREDIT CARD PAYMENT") {
 		return true
 	} else {

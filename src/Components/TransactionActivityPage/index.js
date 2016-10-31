@@ -29,7 +29,8 @@ class TransactionActivityPage extends React.Component {
 	  super(props);
 	
 	  this.state = {
-	  	data: []
+	  	data: [],
+	  	selected: 'SHOW_ALL'
 	  };
 
 	  this.setFilter = this.setFilter.bind(this);
@@ -49,21 +50,26 @@ class TransactionActivityPage extends React.Component {
 	}
 
 	setFilter(mode) {
+		this.setState({selected  : mode})
 		this.props.setModeFilter(mode)
 	}
+
+  isActive(mode){
+    return ((mode===this.state.selected) ?'active':'default');
+  }
 
 	render () {
 		return (
 			<div className='ReportsContainer'>
 				<div className='navBar'>
 					<div>
-						<button onClick={() => this.setFilter('SHOW_ALL')}>All Transactions</button>
+						<button className={this.isActive('SHOW_ALL')} onClick={() => this.setFilter('SHOW_ALL')}>All Transactions</button>
 					</div>
 					<div>
-						<button onClick={() => this.setFilter('IGNORE_DONUT')}>Ignore Donuts</button>
+						<button className={this.isActive('IGNORE_DONUT')} onClick={() => this.setFilter('IGNORE_DONUT')}>Ignore Donuts</button>
 					</div>
 					<div>
-						<button onClick={() => this.setFilter('IGNORE_CC')}>Ignore CC</button>
+						<button className={this.isActive('IGNORE_CC')} onClick={() => this.setFilter('IGNORE_CC')}>Ignore CC</button>
 					</div>
 				</div>
 				<div className='ModeSummaryContainer'>

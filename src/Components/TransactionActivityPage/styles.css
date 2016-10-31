@@ -14,7 +14,18 @@
 .navBar button{
 	border:none;
 	font-size: 13px; 
-	background-color: #F9F9F9;
+	border: 1px solid;
+	border-color: white;
+}
+
+.default {
+	background-color: #F9971C;
+	color: white;
+}
+
+.active {
+	background-color: white;
+	color: black;
 }
 
 .ModeSummaryContainer {
@@ -28,6 +39,8 @@
 
 .ModeSummaryContainer h1{
 	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 5px;
 }
 
 .SummaryContainer {

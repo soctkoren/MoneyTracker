@@ -5,12 +5,43 @@
 
 .navBar {
 	display: flex;
+	justify-content: flex-end;
 	width: 700px;
 	margin: 0 auto;
+	margin-top: 5%;
 }
-.SummaryContainer {
+
+.navBar button{
+	border:none;
+	font-size: 13px; 
+	background-color: #F9F9F9;
+}
+
+.ModeSummaryContainer {
 	width: 700px;
+	height: 100px;
 	margin: 0 auto;
+	text-align: center;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.ModeSummaryContainer h1{
+	margin: 0;
+}
+
+.SummaryContainer {
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}
+
+.SummaryContainer p {
+	color: #3F3F3F;
+	margin: 0;
 }
 
 .activitySummaryContainer {
@@ -57,10 +88,10 @@
 	display: flex
 }
 .transactionContainer:nth-child(odd) {
-    background-color: #F9971C;
+  background-color: #F9971C;
 }
 .transactionContainer:nth-child(even) {
-    background-color: #E08719;
+  background-color: #E08719;
 }
 
 .transactionDate {

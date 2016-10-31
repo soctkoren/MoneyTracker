@@ -52,7 +52,6 @@ class TransactionActivityPage extends React.Component {
 		this.props.setModeFilter(mode)
 	}
 
-
 	render () {
 		return (
 			<div className='ReportsContainer'>
@@ -67,10 +66,13 @@ class TransactionActivityPage extends React.Component {
 						<button onClick={() => this.setFilter('IGNORE_CC')}>Ignore CC</button>
 					</div>
 				</div>
-				<div className='SummaryContainer'>
-					{this.props.data.app.visibleData.totalCredit}					
-					{this.props.data.app.visibleData.totalDebit}
-					{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}
+				<div className='ModeSummaryContainer'>
+					<div><h1>{this.props.data.app.ModeFilters}</h1></div>
+					<div className='SummaryContainer'>
+						<div><p>{this.props.data.app.visibleData.totalCredit}</p></div>
+						<div><p>{this.props.data.app.visibleData.totalDebit}</p></div>
+						<div><p>{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}</p></div>
+					</div>	
 				</div>
 				<div className='activitySummaryContainer'>
 					<Carousel dragging={true} decorators={Decorators}>

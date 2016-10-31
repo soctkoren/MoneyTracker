@@ -41,8 +41,11 @@
 	border: 1px solid;
 	border-color: #F9F9F9;
 	display: flex;
+	justify-content: space-between;
 }
-
+.transactionLeft {
+	display: flex
+}
 .transactionContainer:nth-child(odd) {
     background-color: #F9971C;
 }
@@ -66,7 +69,7 @@
 }
 
 .transactionDebitCredit {
-	display: flex;
+	float: right;
 }
 
 .slider-decorator-2 {

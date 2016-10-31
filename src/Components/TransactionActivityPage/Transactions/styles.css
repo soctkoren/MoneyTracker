@@ -152,6 +152,7 @@
 .transactionTotalContainer {
 	display: flex;
 	justify-content: space-between;
+	padding-top: 10px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -256,4 +257,8 @@
 .Net {
 	background-color: #e1e2e8;
 	margin-right: 5px;
+}
+
+.underline p {
+	text-decoration: underline;
 }

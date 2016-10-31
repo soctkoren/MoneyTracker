@@ -21,10 +21,10 @@ const TransactionList = ({heading, value}) => {
 				</div>
 				<div className='transactionTotal'>
 					<div className='transactionTotalCredit'>
-						<p>{value[2]}</p>
+						<span className='underline'><p>{value[2]}</p></span>
 					</div>
 					<div className='transactionTotalDebit'>
-						<p>{Math.abs(value[1])}</p>
+						<span className='underline'><p>{Math.abs(value[1])}</p></span>
 					</div>
 				</div>
 			</div>

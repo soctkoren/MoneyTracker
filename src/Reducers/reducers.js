@@ -2,13 +2,17 @@ import data from '../../data.json';
 import { combineReducers } from 'redux';
 
 const initialState = {
-	ModeFilters: 'SHOW_ALL',
-	data: data.transactions,
+	ModeFilters: 'RECEIVE_TRANSACTION',
+	data: [],
 	visibleData: {}
 }
 
 const app = (state = initialState, action) => {  
   switch (action.type) {
+  	case 'RECEIVE_TRANSACTION': 
+  		return Object.assign({}, state, {
+  			data: action.data
+  		})
     case 'SHOW_ALL':
     	return Object.assign({}, state, {
 				ModeFilters: action.mode,
@@ -30,8 +34,13 @@ const app = (state = initialState, action) => {
 }
 
 const showAll = (state) => {
-	let visibleData = monthYearSplitAndSum(state.data)
-	return visibleData
+	console.log('yo')
+	console.log(state.data)
+	if (state.data) {
+		let visibleData = monthYearSplitAndSum(state.data)
+		return visibleData
+	}
+	return state
 }
 
 const ignoreDonuts = (state) => {

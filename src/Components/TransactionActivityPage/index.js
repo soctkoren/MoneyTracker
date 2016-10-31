@@ -13,10 +13,10 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
 	return {
-		setModeFilter: (mode) => dispatch(setModeFilter(mode)),
-		fetchTransactions: (transactions) => dispatch(fetchTransactions(transactions))
+		fetchTransactions: (transactions) => dispatch(fetchTransactions(transactions)),
+		setModeFilter: (mode) => dispatch(setModeFilter(mode))
 	}
 }
 
@@ -35,12 +35,13 @@ class TransactionActivityPage extends React.Component {
 	  	selected: 'SHOW_ALL'
 	  };
 
+	  this.props.fetchTransactions('get-all-transactions')
 	  this.setFilter = this.setFilter.bind(this);
 	}
 
 	componentWillMount() {
 		this.setFilter('SHOW_ALL')
-		this.props.fetchTransactions('get-all-transactions')
+		
 	}
 
 	componentWillReceiveProps(nextProps) {

@@ -9,13 +9,19 @@ import TransactionActivityPage from './Components/TransactionActivityPage';
 import './index.css';
 
 //Configure middleware w/ redux-promise for AJAX requests
-const createStoreWithMiddleware = applyMiddleware(
-  promise,
-  thunkMiddleware
-)(createStore);
+// const store = createStore(
+// 	rootReducers,
+// 	applyMiddleware(promise,thunkMiddleware)
+// );
 
-const store = createStore(rootReducers)
+const store = createStore(
+  rootReducers,
+	applyMiddleware(
+  	thunkMiddleware, promise
+  )
+)
 
+// console.log(store)
 ReactDOM.render(
 	<Provider store={store}>
     <TransactionActivityPage />

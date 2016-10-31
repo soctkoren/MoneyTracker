@@ -5,7 +5,6 @@ import TransactionHeader from './transactionheader.js';
 import './styles.css';
 
 const TransactionList = ({heading, value}) => {	
-	console.log(value[0])
 	return (
 		<div className='listContainer'>
 			<div className='DetailContainer'>

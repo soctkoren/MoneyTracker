@@ -53,7 +53,6 @@ const ignoreCC = (state) => {
 }
 
 function isNotCC(transaction) {
-	console.log(transaction['raw-merchant'].toLowerCase())
 	if (transaction['raw-merchant'].toLowerCase() !== "cc payment" && transaction['raw-merchant'] !== "CREDIT CARD PAYMENT") {
 		return true
 	} else {

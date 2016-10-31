@@ -1,4 +1,3 @@
-import data from '../../data.json';
 import { combineReducers } from 'redux';
 
 const initialState = {
@@ -11,7 +10,9 @@ const app = (state = initialState, action) => {
   switch (action.type) {
   	case 'RECEIVE_TRANSACTION': 
   		return Object.assign({}, state, {
-  			data: action.data
+  			data: action.data,
+  			ModeFilters: 'SHOW_ALL',
+				visibleData: showAll(action)
   		})
     case 'SHOW_ALL':
     	return Object.assign({}, state, {

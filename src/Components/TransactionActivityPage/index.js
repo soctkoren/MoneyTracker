@@ -35,13 +35,12 @@ class TransactionActivityPage extends React.Component {
 	  	selected: 'SHOW_ALL'
 	  };
 
-	  this.props.fetchTransactions('get-all-transactions')
 	  this.setFilter = this.setFilter.bind(this);
+	  this.props.fetchTransactions('get-all-transactions')
 	}
 
 	componentWillMount() {
 		this.setFilter('SHOW_ALL')
-		
 	}
 
 	componentWillReceiveProps(nextProps) {

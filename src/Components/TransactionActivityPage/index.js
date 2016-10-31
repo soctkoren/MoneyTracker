@@ -5,6 +5,8 @@ import { setModeFilter } from '../../Actions/actions.js';
 import TransactionList from './Transactions/transactionlist.js';
 import Carousel from 'nuka-carousel';
 import Decorators from './decorators.js';
+import ModeHeader from './ModeHeader';
+import './Transactions/styles.css';
 
 const mapStateToProps = (state) => {
 	return {
@@ -73,11 +75,17 @@ class TransactionActivityPage extends React.Component {
 					</div>
 				</div>
 				<div className='ModeSummaryContainer'>
-					<div><h1>{this.props.data.app.ModeFilters}</h1></div>
+					<ModeHeader props={this.props.data.app.ModeFilters}/>
 					<div className='SummaryContainer'>
-						<div><p>{this.props.data.app.visibleData.totalCredit}</p></div>
-						<div><p>{this.props.data.app.visibleData.totalDebit}</p></div>
-						<div><p>{this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}</p></div>
+						<div className='HeadingCard Income'>
+							<div><p>Total Income: {this.props.data.app.visibleData.totalCredit}</p></div>
+						</div>
+						<div className='HeadingCard Spending'>
+							<div><p>Total Spending: {this.props.data.app.visibleData.totalDebit}</p></div>
+						</div>
+						<div className='HeadingCard Net'>
+							<div><p>Net: {this.props.data.app.visibleData.totalCredit + this.props.data.app.visibleData.totalDebit}</p></div>
+						</div>	
 					</div>	
 				</div>
 				<div className='activitySummaryContainer'>

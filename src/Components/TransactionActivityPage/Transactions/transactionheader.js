@@ -3,16 +3,19 @@ import './styles.css';
 
 const TransactionHeader = () => {
 	return (
-		<div className='transactionContainer'>
+		<div className='Header'>
 			<div className='transactionLeft'>
-				<div className='transactionDate'>
-					<p></p>
+				<div className='transactionDate Date'>
+					<p>Date</p>
 				</div>
 				<div className='transactionAmount'>
-					<p></p>
+					<p>Merchant</p>
 				</div>
 			</div>	
-			
+			<div className='transactionDebitCredit'>
+				<div className='transactionCredit'><p>Credit</p></div>
+				<div className='transactionDebit'><p>Debit</p></div>
+			</div>
 		</div>
 	)
 }

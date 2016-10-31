@@ -1,0 +1,9 @@
+.ModeHeader {
+	background-color: white;
+}
+
+.ModeHeader h2{
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}

@@ -105,15 +105,19 @@ function monthYearSplitAndSum(visibleData) {
 		let monthDebit = 0
 		let monthCredit = 0
 		let total = 0
+		let DebitCount = 0
+		let avgSpending = 0
 		monthYearSplitAndSum[key].forEach(function(a){
 			if (a.amount <= 0) {
 				monthDebit += a.amount
+				DebitCount += 1
 			} else {
 				monthCredit += a.amount
 			}
 			total += a.amount
+			avgSpending = Math.floor(monthCredit / DebitCount)
 		})
-		monthYearSplitAndSum[key] = [monthYearSplitAndSum[key], monthDebit, monthCredit, total]
+		monthYearSplitAndSum[key] = [monthYearSplitAndSum[key], monthDebit, monthCredit, total, avgSpending, DebitCount]
 	}
 	
 	return visibleData = {monthYearSplitAndSum, totalDebit, totalCredit}

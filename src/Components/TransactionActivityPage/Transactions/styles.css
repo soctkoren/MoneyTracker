@@ -85,6 +85,30 @@
 	overflow-y: auto;
 }
 
+.DetailContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.Circle {
+	color: white;
+	border-radius: 150px;
+	width: 80px;
+	height: 80px;
+	font-size: 12px;
+	text-align: center;
+	background-color: #F9971C;
+	border: 4px solid;
+	border-color: white;
+	transform: translate(-15px, -20px);
+}
+
+.shadow {
+   -moz-box-shadow:    inset 0 3px 6px rgba(0,0,0,0.36);
+   -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,0.36);
+   box-shadow:         inset 0 3px 6px rgba(0,0,0,0.36);
+}
+
 .transactionContainer {
 	color: white;
 	padding-left: 5px;
@@ -152,6 +176,7 @@
 .transactionTotalContainer {
 	display: flex;
 	justify-content: space-between;
+	padding-top: 10px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -256,4 +281,8 @@
 .Net {
 	background-color: #e1e2e8;
 	margin-right: 5px;
+}
+
+.underline p {
+	text-decoration: underline;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import data from '../../../data.json';
 import { connect } from 'react-redux';
 import { setModeFilter } from '../../Actions/actions.js';
 import TransactionList from './Transactions/transactionlist.js';

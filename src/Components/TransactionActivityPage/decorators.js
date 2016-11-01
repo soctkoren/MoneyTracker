@@ -18,10 +18,7 @@ const Decorators = [{
       )
     }
   }),
-  position: 'TopCenter',
-  style: {
-    
-  }
+  position: 'TopCenter'
 }];
 
 export default Decorators

@@ -41,6 +41,7 @@ function isNotCC(transaction) {
 	}
 }
 
+//Logic for reducing raw data that will be visiable to users
 function monthYearSplitAndSum(visibleData, baseData) {
 	let totalDebit = 0
 	let totalCredit = 0
@@ -111,6 +112,7 @@ function monthYearSplitAndSum(visibleData, baseData) {
 	return visibleData = {monthYearSplitAndSum, totalDebit, totalCredit, diff}
 }
 
+//App reducer
 const app = (state = initialState, action) => {  
   switch (action.type) {
   	case 'RECEIVE_TRANSACTION': 
@@ -139,7 +141,6 @@ const app = (state = initialState, action) => {
       return state
   }
 }
-
 
 const rootReducers = combineReducers({
 	app,

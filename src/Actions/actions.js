@@ -19,6 +19,7 @@ export function setModeFilter(mode) {
   }
 }
 
+// Initial API call and dispatch action to receiveTrnasactions
 export function fetchTransactions(mode) {
   return function (dispatch) {
     dispatch(requestTransactions(mode))
@@ -40,6 +41,7 @@ export function fetchTransactions(mode) {
   }
 }
 
+// set data and loaded status
 function receiveTransactions(mode, data) {
   return {
     type: 'RECEIVE_TRANSACTION',

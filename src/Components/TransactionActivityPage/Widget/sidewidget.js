@@ -6,9 +6,6 @@ import './styles.css';
 const SideWidget = ({props}) => {
 	return (
 		<div>
-			<div className='ListCC'>
-				<img src={cc}/>
-			</div>
 			<div className='Widget'>
 				<div className='MiniHeader'>
 					<p>CC DR/CR</p>

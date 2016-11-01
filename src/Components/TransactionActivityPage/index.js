@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader';
 import { setModeFilter, fetchTransactions } from '../../Actions/actions.js';
+import cc from '../../../public/cc.png'
 import TransactionList from './Transactions/transactionlist.js';
 import SideWidget from './Widget/sidewidget.js';
 import Carousel from 'nuka-carousel';
@@ -117,7 +118,13 @@ class TransactionActivityPage extends React.Component {
 						</div>	
 					</div>	
 				</div>
-				{data.ModeFilters === 'IGNORE_CC' ? <div><SideWidget props={data.visibleData.diff} /></div> : <div></div>}
+				{data.ModeFilters === 'IGNORE_CC' ? 
+				<div>
+					<div className='ListCC'>
+						<img src={cc}/>
+					</div>
+					<SideWidget props={data.visibleData.diff} />
+				</div> : <div></div>}
 				<div className='activitySummaryContainer'>
 					{
 						data.loaded ? 

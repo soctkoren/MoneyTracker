@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import Loader from 'react-loader';
 import { setModeFilter, fetchTransactions } from '../../Actions/actions.js';
 import TransactionList from './Transactions/transactionlist.js';
+import SideWidget from './Widget/sidewidget.js';
 import Carousel from 'nuka-carousel';
 import Decorators from './decorators.js';
 import ModeHeader from './ModeHeader';
-import cc from '../../../public/cc.png'
 import './Transactions/styles.css';
 
 const mapStateToProps = (state) => {
@@ -117,7 +117,7 @@ class TransactionActivityPage extends React.Component {
 						</div>	
 					</div>	
 				</div>
-				{data.ModeFilters === 'IGNORE_CC' ? <div className='ListCC'><img src={cc}/></div> : <div></div>}
+				{data.ModeFilters === 'IGNORE_CC' ? <div><SideWidget props={data.visibleData.diff} /></div> : <div></div>}
 				<div className='activitySummaryContainer'>
 					{
 						data.loaded ? 

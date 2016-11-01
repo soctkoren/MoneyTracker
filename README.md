@@ -2,7 +2,7 @@ This project was an interview project for Capital One / Level Money
 
 ![demo](./public/demo.gif)
 
-Demo [here](https://ghostly-treat-40102.herokuapp.com/).
+Demo [Here](https://ghostly-treat-40102.herokuapp.com/).
 
 ## Table of Contents
 
@@ -14,10 +14,10 @@ Demo [here](https://ghostly-treat-40102.herokuapp.com/).
 
 ## Challenges
 
-* Loads a user's transactions from the GetAllTransactions.
+* Load a user's transactions from the GetAllTransactions end point.
 * Determines how much money the user spends and makes in each of the months for which we have data.
 * Determine average spending per month.
-* Display above challenges.
+* Display above challenges in any format.
 
 #### Additional challenges completed: ####
 
@@ -34,7 +34,7 @@ This project was built on
 
 `config.json` has information regarding the API tokens and ids. The file has been git ignored, but should be included with the zipped version. Please place the file into the root directory.
 
-To complie `npm install` & `npm start`
+To compile `npm install` & `npm start`
 
 ## Available Scripts
 

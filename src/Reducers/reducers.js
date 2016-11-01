@@ -29,7 +29,7 @@ function isNotDonut(transaction) {
 }
 
 const ignoreCC = (state) => {
-	let visibleData = monthYearSplitAndSum(state.data.filter(isNotCC))
+	let visibleData = monthYearSplitAndSum(state.data.filter(isNotCC), state.data)
 	return visibleData
 }
 
@@ -41,7 +41,7 @@ function isNotCC(transaction) {
 	}
 }
 
-function monthYearSplitAndSum(visibleData) {
+function monthYearSplitAndSum(visibleData, baseData) {
 	let totalDebit = 0
 	let totalCredit = 0
 	let histogramMonths = {
@@ -58,6 +58,12 @@ function monthYearSplitAndSum(visibleData) {
 		'11': 'November',
 		'12': 'December'
 	}
+	
+	let diff = []
+	if (baseData) {
+		diff = baseData.filter(function(x) { return visibleData.indexOf(x) < 0 })
+	}
+
 	const monthYearSplitAndSum = {}
 	// Create sum for debit and credit. Also create month & year parser. Doing both work here instead of
 	// iterating through again.
@@ -102,7 +108,7 @@ function monthYearSplitAndSum(visibleData) {
 		}
 	}
 	
-	return visibleData = {monthYearSplitAndSum, totalDebit, totalCredit}
+	return visibleData = {monthYearSplitAndSum, totalDebit, totalCredit, diff}
 }
 
 const app = (state = initialState, action) => {  

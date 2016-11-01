@@ -34,6 +34,8 @@ This project was built on
 
 `config.json` has information regarding the API tokens and ids. The file has been git ignored, but should be included with the zipped version. Please place the file into the root directory.
 
+To complie `npm install` & `npm start`
+
 ## Available Scripts
 
 In the project directory, you can run:

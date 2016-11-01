@@ -2,7 +2,7 @@ This project was an interview project for Capital One / Level Money
 
 ![demo](./public/demo.gif)
 
-Demo [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Demo [here](https://ghostly-treat-40102.herokuapp.com/).
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Demo [here](https://github.com/facebookincubator/create-react-app/blob/master/pa
 
 * Loads a user's transactions from the GetAllTransactions.
 * Determines how much money the user spends and makes in each of the months for which we have data.
-* Determine average spending per month.
+* Determine average spending per month. (I interpreted the instructions to be this. Wasn't clear)
 * Display above challenges.
 
 #### Additional challenges completed: ####
@@ -46,4 +46,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Deployment
 
 This project was deployed to Heroku. Please see the link address below
+
+[https://ghostly-treat-40102.herokuapp.com/](https://ghostly-treat-40102.herokuapp.com/).
+
+Deployed on Halloween!~~~ whoooo
 
